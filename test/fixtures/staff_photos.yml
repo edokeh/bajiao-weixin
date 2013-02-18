@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  file: MyString
+  file_name: MyString
+  content_type: MyString
+  file_size: MyString
+  staff_id: 1
+
+two:
+  file: MyString
+  file_name: MyString
+  content_type: MyString
+  file_size: MyString
+  staff_id: 1

@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= render :partial => 'layouts/admin_nav', :locals => {:curr_tab => 'staff_photo'} %>
+
+    <%= form_tag "/admin/staff_photos", :class => "form-inline", :multipart => true do %>
+        <input type="file" name="file" style="width: 150px;"/>
+        <input type="text" name="staff_workno" class="input-small" placeholder="工号" required/>
+        <button class="btn">上传</button>
+    <% end %>
+
+    <div>
+      <form action="/admin/staff_photos" method="get" class="form-inline">
+        <select name="status" onchange="this.parentNode.submit()">
+          <option value="">全部</option>
+          <option <%= "selected" if StaffPhoto::S_INVALID.to_s == params[:status] %> value="<%= StaffPhoto::S_INVALID %>">未通过</option>
+          <option <%= "selected" if StaffPhoto::S_VALID.to_s == params[:status] %> value="<%= StaffPhoto::S_VALID %>">已通过</option>
+        </select>
+      </form>
+    </div>
+
+    <%= paginate @staff_photos %>
+
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <td width="3%">#</td>
+        <th width="350px">图片</th>
+        <th width="10%">归属人</th>
+        <th width="15%">文件名</th>
+        <th width="5%">文件大小</th>
+        <th width="10%">上传者</th>
+        <th width="10%">状态</th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <% @staff_photos.each do |photo| %>
+          <tr>
+            <td><%= photo.id %></td>
+            <td><%= image_tag staff_photo_path(photo) %></td>
+            <td>
+              <% if photo.staff_workno.present? %>
+                  <%= photo.staff.try(:name) %>[<%= photo.staff_workno %>]
+              <% end %>
+            </td>
+            <td style="word-wrap: break-word;word-break: break-all;"><%= photo.file_name %></td>
+            <td><%= number_to_human_size photo.file_size %></td>
+            <td>
+              <% if photo.weixin_user.present? %>
+                  <%= photo.weixin_user.nick %>(<%= photo.weixin_user.weixin_id %>)
+              <% end %>
+            </td>
+            <td><%= status_desc photo %></td>
+            <td>
+              <%= link_to photo.is_valid? ? "拒绝" : "通过", change_valid_admin_staff_photo_path(photo), :class => "btn btn-primary", :method => :post %>
+              <%= link_to "删除", admin_staff_photo_path(photo), :class => "btn btn-danger", :method => :delete, :confirm => "确定删除？" %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
+    <%= paginate @staff_photos %>
+  </div>
+</div>
+<%= javascript_include_tag 'admin_staff_photos' %>
+

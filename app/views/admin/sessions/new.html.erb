@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>星火路芭蕉后台</title>
+  <meta charset="utf-8"/>
+  <%= stylesheet_link_tag 'staffs' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container" style="width:400px;margin-top:100px">
+  <%= form_tag admin_session_path, :class=>"form-inline" do -%>
+      <legend>输入密码</legend>
+      <div class="well">
+        <% if flash[:error] %>
+        <div class="alert alert-error">
+          <%= flash[:error] %>
+        </div>
+        <% end %>
+        <%= password_field_tag 'password', nil, :class=>'input-xlarge', :autofocus=>true %>
+        <button class="btn btn-medium btn-danger" type="submit">
+          登录
+        </button>
+      </div>
+  <% end -%>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,10 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand">星火路芭蕉</a>
+    <ul class="nav">
+      <li class="<%= 'active' if curr_tab == "staff" %>"><a href="/admin/staffs">员工列表</a></li>
+      <li class="<%= 'active' if curr_tab == "weixin_user" %>"><a href="/admin/weixin_users">微信用户</a></li>
+      <li class="<%= 'active' if curr_tab == "staff_photo" %>"><a href="/admin/staff_photos">图片</a></li>
+    </ul>
+  </div>
+</div>

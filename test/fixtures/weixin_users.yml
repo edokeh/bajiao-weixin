@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  weixin_id: MyString
+  nick: MyString
+  remark: MyString
+
+two:
+  weixin_id: MyString
+  nick: MyString
+  remark: MyString

@@ -1,0 +1,10 @@
+<MsgType><![CDATA[news]]></MsgType>
+<ArticleCount>1</ArticleCount>
+<Articles>
+    <item>
+        <Title><![CDATA[<%= @staff.name %>]]></Title>
+        <Description><![CDATA[点击查看详情...]]></Description>
+        <PicUrl><![CDATA[<%= staff_photo_url(@staff.staff_photos[0].id) %>]]></PicUrl>
+        <Url><![CDATA[<%= staff_url(@staff.workno) %>]]></Url>
+    </item>
+</Articles>

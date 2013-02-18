@@ -1,0 +1,29 @@
+<%= form_for(@weixin_user) do |f| %>
+  <% if @weixin_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weixin_user.errors.count, "error") %> prohibited this weixin_user from being saved:</h2>
+
+      <ul>
+      <% @weixin_user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :weixin_id %><br />
+    <%= f.text_field :weixin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :nick %><br />
+    <%= f.text_field :nick %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br />
+    <%= f.text_field :remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

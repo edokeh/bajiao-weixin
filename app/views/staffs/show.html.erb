@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <table class="table">
+      <col width="20%"/>
+      <tr>
+        <th rowspan="4"><strong>信息</strong></th>
+        <td><%= @staff.name %> [ <%= pretty_workno @staff.workno %> ]</td>
+      </tr>
+      <tr>
+        <td><%= @staff.phone %></td>
+      </tr>
+      <tr>
+        <td><%= @staff.email %></td>
+      </tr>
+      <tr>
+        <td><%= @staff.dept %> &gt; <%= @staff.duty %></td>
+      </tr>
+      <tr>
+        <th>照片</th>
+        <td>
+          <% @staff.staff_photos.valid.each do |photo| %>
+              <%= image_tag staff_photo_path(photo) %>
+              <%= link_to(photo.is_valid? ? "拒绝" : "通过", change_valid_admin_staff_photo_path(photo),
+                          :class => "btn btn-primary", :method => :post) if false &&　is_admin? %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<%= javascript_include_tag "admin_staff_photos" if is_admin? %>

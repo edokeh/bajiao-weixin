@@ -1,0 +1,13 @@
+<% staffs.each do |staff| %>
+<%= staff.name %> #<%= staff.phone %>
+[ <%= pretty_workno staff.workno %> ]
+<%= staff.dept %>
+<%= staff.duty %>
+<%= staff.email %>
+<% if staff.workno == '672' %>
+<%= "\u{1F389}" %>伟大的作者<%= "\u{1F47B}" %>
+<% end %>
+<% if staff != staffs[-1] %>
+───────────
+<% end %>
+<% end %>

@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= render :partial => 'layouts/admin_nav', :locals => {:curr_tab => 'weixin_user'} %>
+
+    <%= form_for([:admin, @weixin_user], :html => {:class => "form-horizontal"}) do |f| %>
+        <% if @weixin_user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@weixin_user.errors.count, "error") %> prohibited this weixin_user from being
+                saved:</h2>
+
+              <ul>
+                <% @weixin_user.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">微信ID</label>
+
+          <div class="controls">
+            <%= f.text_field :weixin_id, :readonly => true, :class => "input-xxlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">状态</label>
+
+          <div class="controls">
+            <%= f.select :status, options_for_select([["未通过", WeixinUser::S_INVALID],["通过", WeixinUser::S_VALID]]), :class => "input-xxlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">昵称</label>
+
+          <div class="controls">
+            <%= f.text_field :nick, :class => "input-xxlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">备注</label>
+
+          <div class="controls">
+            <%= f.text_area :remark, :rows => 10, :class => "input-xxlarge" %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-primary">修改</button>
+            <%= link_to '返回列表', admin_weixin_users_path, :class => "btn" %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

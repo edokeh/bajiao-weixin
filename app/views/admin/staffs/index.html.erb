@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= render :partial=>'layouts/admin_nav', :locals=>{:curr_tab=>'staff'} %>
+
+    <%= paginate @staffs %>
+
+    <table class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th width="5%">#</th>
+          <th width="5%">姓名</th>
+          <th width="5%">工号</th>
+          <th width="5%">分机</th>
+          <th width="25%">部门</th>
+          <th width="20%">职务</th>
+          <th width="20%">Email</th>
+          <th width="10%">拼音</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <% @staffs.each.with_index do |staff, index| %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td><%= staff.name %></td>
+            <td><%= staff.workno %></td>
+            <td><%= staff.phone %></td>
+            <td><%= staff.dept %></td>
+            <td><%= staff.duty %></td>
+            <td><%= staff.email %></td>
+            <td><%= staff.pinyin %></td>
+            <td><%= link_to "查看", staff_url(staff.workno), :target=>"_blank" %></td>
+          </tr>
+      <% end %>
+    </table>
+
+    <%= paginate @staffs %>
+  </div>
+</div>
