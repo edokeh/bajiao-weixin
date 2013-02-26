@@ -6,6 +6,7 @@
 
 # Ignore bundler config
 /.bundle
+.rvmrc
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,6 +17,7 @@
 
 /.idea
 /.project
+
 
 /public/uploads
 /public/assets
