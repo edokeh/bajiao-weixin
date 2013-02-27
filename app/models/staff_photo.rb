@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-# -coding: utf-8 -
 require 'net/http'
 Net::HTTP.version_1_2
 

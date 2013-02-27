@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-# -coding: utf-8 -
 class Staff < ActiveRecord::Base
   attr_accessible :name, :workno, :phone, :email, :dept, :duty, :username, :pinyin
 

@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-#encoding: utf-8
 require 'net/http'
 require 'net/http/post/multipart'
 require 'json'

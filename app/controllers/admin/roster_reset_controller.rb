@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-# -coding: utf-8 -
 # 重置数据的接口，接收程序提交的最新员工数据、照片
 class Admin::RosterResetController < Admin::ApplicationController
   skip_before_filter :verify_authenticity_token
