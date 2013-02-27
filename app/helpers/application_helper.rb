@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ApplicationHelper
   # kaminari view 原来不提供 total count，覆盖一下
   def paginate(scope, options = {}, &block)

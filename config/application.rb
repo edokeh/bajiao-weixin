@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -62,6 +63,6 @@ module Bajiao
     config.assets.version = '1.0'
 
     config.admin_pass = 'test'
-    config.weixin_token = 'test'
+    config.weixin_token = 'bajiao'
   end
 end

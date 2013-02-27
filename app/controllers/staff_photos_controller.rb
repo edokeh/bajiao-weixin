@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class StaffPhotosController < ApplicationController
   # 具体图片
   def show

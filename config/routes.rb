@@ -1,6 +1,16 @@
+# -*- encoding : utf-8 -*-
 Bajiao::Application.routes.draw do
 
-  resource :weixin
+  scope :path => "/weixin", :via => :post, :defaults => {:format => 'xml'} do
+    root :to => 'weixin/home#welcome', :constraints => Weixin::Router.new(:type => "text", :content => "Hello2BizUser")
+    root :to => 'weixin/staffs#show', :constraints => Weixin::Router.new(:type => "text", :content => /^@/)
+    root :to => 'weixin/staff_photos#update', :constraints => Weixin::Router.new(:type => "text", :content=>/^#photo /)
+    root :to => 'weixin/staffs#index', :constraints => Weixin::Router.new(:type => "text")
+    root :to => 'weixin/staff_photos#create', :constraints => Weixin::Router.new(:type => "image")
+  end
+
+  get "/weixin" => "weixin/home#show"
+
   resources :staffs
   resources :staff_photos
 
@@ -70,7 +80,7 @@ Bajiao::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  # root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # -coding: utf-8 -
 module WeixinUsersHelper
 
@@ -6,7 +7,7 @@ module WeixinUsersHelper
       when WeixinUser::S_INVALID
         "未通过"
       when WeixinUser::S_VALID
-        "已通过"
+        "通过"
     end
   end
 end
