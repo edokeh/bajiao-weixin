@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # -coding: utf-8 -
 require 'net/http'
 Net::HTTP.version_1_2
@@ -31,14 +32,14 @@ class StaffPhoto < ActiveRecord::Base
   # 根据微信消息新建
   def self.new_by_msg(msg)
     photo = StaffPhoto.new
-    weixin_user = WeixinUser.where(:weixin_id => msg[:FromUserName]).first
+    weixin_user = WeixinUser.where(:weixin_id => msg.from_user).first
     photo.weixin_user_id = weixin_user.id
-    photo.file_name = msg[:PicUrl]
+    photo.file_name = msg.pic_url
     photo.status = S_INVALID
 
     # 5秒限制
     Thread.new do
-      file = Net::HTTP.get(URI(msg[:PicUrl]))
+      file = Net::HTTP.get(URI(msg.pic_url))
       photo.file = file
       photo.content_type = "image/jpeg"
       photo.file_size = file.length

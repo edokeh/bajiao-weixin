@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateWeixinUsers < ActiveRecord::Migration
   def change
     create_table :weixin_users do |t|

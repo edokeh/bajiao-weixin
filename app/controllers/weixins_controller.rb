@@ -1,4 +1,4 @@
-# -coding: utf-8 -
+# -*- encoding : utf-8 -*-
 class WeixinsController < ApplicationController
   layout "weixin"
   skip_before_filter :verify_authenticity_token
@@ -69,7 +69,7 @@ class WeixinsController < ApplicationController
 
   # 欢迎信息
   def welcome
-    render "welcome", :formats => :xml
+    render "home", :formats => :xml
   end
 
   # 图片投稿

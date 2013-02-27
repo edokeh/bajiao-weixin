@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateStaffPhotos < ActiveRecord::Migration
   def change
     create_table :staff_photos do |t|

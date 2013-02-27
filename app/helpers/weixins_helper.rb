@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # -coding: utf-8 -
 module WeixinsHelper
   # 补全工号前面的0

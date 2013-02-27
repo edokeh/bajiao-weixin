@@ -28,7 +28,7 @@
           <label class="control-label" for="inputEmail">状态</label>
 
           <div class="controls">
-            <%= f.select :status, options_for_select([["未通过", WeixinUser::S_INVALID],["通过", WeixinUser::S_VALID]]), :class => "input-xxlarge" %>
+            <%= f.select :status, [["未通过", WeixinUser::S_INVALID],["通过", WeixinUser::S_VALID]], :class => "input-xxlarge" %>
           </div>
         </div>
 

@@ -38,3 +38,4 @@ gem 'kaminari'
 
 # To use debugger
 # gem 'debugger'
+gem 'pry-rails', :group => :development
